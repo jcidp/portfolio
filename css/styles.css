@@ -1,10 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 :root {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", system-ui, sans-serif;
 }
 
-h1 {
-  color: purple;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  width: min(1000px, 100% - 4rem);
+  margin-inline: auto;
+}
+
+svg {
+  width: 32px;
+  height: 32px;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  padding-top: 1em;
+  margin: 1em 0;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+}
+
+.card {
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 5px 2px lightgrey;
+  transition: transform 0.2s ease-in-out;
+}
+.card__text-container {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  padding: 1em;
+}
+.card__icon-container {
+  display: flex;
+  gap: 0.5em;
+}
+.card__description {
+  grid-column: 1/-1;
+  margin-top: 0.5em;
+  color: darkslategrey;
+}
+.card:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 600px) {
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
