@@ -38,47 +38,38 @@ h1 {
     font-size: 3rem;
 }
 
-.slide-left {
-    transform: translateX(0);
+@mixin transition-base {
+    transform: translate(0);
     opacity: 1;
     transition-property: opacity transform;
     transition: 1s ease-in-out;
 
     &.hidden {
         opacity: 0;
+    }
+}
+
+.slide-left {
+    @include transition-base;
+
+    &.hidden {
         transform: translateX(100%);
     }
 }
 
 .slide-right {
-    transform: translateX(0);
-    opacity: 1;
-    transition-property: opacity transform;
-    transition: 1s ease-in-out;
+    @include transition-base;
 
     &.hidden {
-        opacity: 0;
         transform: translateX(-100%);
     }
 }
 
 .slide-up {
-    opacity: 1;
-    transform: translateY(0);
-    transition-property: opacity transform;
-    transition: 1s ease-out;
+    @include transition-base;
 
     &.hidden {
-        opacity: 0;
         transform: translateY(100%);
-    }
-}
-
-.fade-in {
-    opacity: 1;
-
-    &.hidden {
-        opacity: 0;
     }
 }
 
@@ -131,6 +122,14 @@ h1 {
         grid-column: 1 / -1;
         margin-top: 0.5em;
         color: darkslategrey;
+    }
+
+    &.fade-in {
+        opacity: 1;
+    
+        &.hidden {
+            opacity: 0;
+        }
     }
 
     &:hover {
