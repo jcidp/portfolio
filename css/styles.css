@@ -14,6 +14,7 @@ body {
   line-height: 1.5;
   width: min(1000px, 100% - 4rem);
   margin-inline: auto;
+  overflow-x: hidden;
 }
 
 svg {
@@ -34,6 +35,46 @@ section {
 h1 {
   font-family: "Caveat", cursive;
   font-size: 3rem;
+}
+
+.slide-left {
+  transform: translateX(0);
+  opacity: 1;
+  transition-property: opacity transform;
+  transition: 1s ease-in-out;
+}
+.slide-left.hidden {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-right {
+  transform: translateX(0);
+  opacity: 1;
+  transition-property: opacity transform;
+  transition: 1s ease-in-out;
+}
+.slide-right.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity transform;
+  transition: 1s ease-out;
+}
+.slide-up.hidden {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.fade-in {
+  opacity: 1;
+}
+.fade-in.hidden {
+  opacity: 0;
 }
 
 .photo {
@@ -57,6 +98,7 @@ h1 {
 }
 
 .portfolio {
+  margin-top: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2em;
@@ -66,7 +108,7 @@ h1 {
   border: 1px solid lightgray;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px lightgrey;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 2s ease-in-out;
 }
 .card__text-container {
   display: grid;
@@ -87,10 +129,23 @@ h1 {
 }
 
 .contact .email {
-  margin: 1em 0;
+  margin: 1em 0 2em;
   display: flex;
   align-items: center;
   gap: 1em;
+}
+.contact .email__anchor {
+  text-decoration: none;
+  color: purple;
+}
+.contact .email__anchor:hover + .email__underline {
+  transform: scaleX(1) translateY(-3px);
+}
+.contact .email__underline {
+  border-top: 1px solid purple;
+  transform: scaleX(0) translateY(-3px);
+  transform-origin: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
 @media (max-width: 600px) {
