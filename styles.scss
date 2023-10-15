@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat&display=swap');
 
 :root {
     font-family: 'Montserrat', system-ui, sans-serif;
@@ -23,12 +23,43 @@ svg {
 }
 
 img {
-    max-width: 100%
+    max-width: 100%;
+    border-radius: 5px;
 }
 
 section {
     padding-top: 1em;
     margin: 1em 0;
+}
+
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 3rem;
+}
+
+.photo {
+    position: relative;
+    max-width: 600px;
+    margin-inline: auto;
+
+    &__image {
+        
+    }
+
+    &__name {
+        position: absolute;
+        bottom: 0.5em;
+        color: white;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.icons {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
 }
 
 .portfolio {
@@ -39,6 +70,7 @@ section {
 
 .card {
     border: 1px solid lightgray;
+    border-radius: 5px;
     box-shadow: 2px 2px 5px 2px lightgrey;
     transition: transform 0.2s ease-in-out;
 
@@ -62,6 +94,15 @@ section {
     &:hover {
         transform: scale(1.04);
         
+    }
+}
+
+.contact {
+    .email {
+        margin: 1em 0;
+        display: flex;
+        align-items: center;
+        gap: 1em;
     }
 }
 
